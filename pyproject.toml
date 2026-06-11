@@ -1,0 +1,17 @@
+[project]
+name = "sessionkit"
+version = "0.3.0"
+description = "Inspect and debug Perplexity Computer sessions: environment resolution, connector discovery, schema caching"
+requires-python = ">=3.11"
+dependencies = []
+license = { text = "MIT" }
+
+[project.scripts]
+sessionkit = "sessionkit.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
