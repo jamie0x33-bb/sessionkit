@@ -24,3 +24,10 @@ def test_clear_removes_entries(tmp_path, monkeypatch):
     cache.put("a", {})
     cache.put("b", {})
     assert cache.clear() == 2
+
+
+def test_keys_lists_cached_ids(tmp_path, monkeypatch):
+    monkeypatch.setattr(cache, "CACHE_DIR", tmp_path)
+    cache.put("gcal", {})
+    cache.put("finance", {})
+    assert cache.keys() == ["finance", "gcal"]
