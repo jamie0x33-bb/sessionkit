@@ -70,6 +70,15 @@ def find(query: str, rt: Runtime | None = None) -> list[dict]:
     ]
 
 
+def status_counts(rt: Runtime | None = None) -> dict[str, int]:
+    """How many connectors sit in each status."""
+    out: dict[str, int] = {}
+    for c in list_connectors(rt):
+        k = c.get('status') or 'UNKNOWN'
+        out[k] = out.get(k, 0) + 1
+    return out
+
+
 def describe(source_id: str, rt: Runtime | None = None) -> dict:
     return request(rt or load(), "POST", f"/rest/connector-service/connectors/{source_id}/describe", {})
 
