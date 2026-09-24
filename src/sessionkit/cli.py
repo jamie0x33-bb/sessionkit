@@ -14,7 +14,10 @@ def _status(args) -> int:
     print(f"sandbox:          {'yes' if config.in_sandbox() else 'no'}")
     print(f"connector base:   {rt.base_url or '(unset)'}")
     print(f"connector target: {rt.target_base_url or '(unset)'}")
-    print("connector calls should work" if rt.ready else "connector calls will fail")
+    if rt.ready:
+        print("connector calls should work")
+    else:
+        print("connector calls will fail; one half of a pair is unset")
     return 0 if rt.ready else 1
 
 
