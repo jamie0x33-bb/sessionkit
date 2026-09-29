@@ -31,6 +31,11 @@ whose `X-Base-Url` is not in the session's allowed set, so a half-configured pai
 like a permissions problem rather than a configuration one. `sessionkit status` reports
 which pairs are complete.
 
+## Schema registry
+
+`describe` falls back to a snapshot when the connector service rate limits the listing.
+The endpoint and its auth are documented in [docs/registry.md](docs/registry.md).
+
 ## Configuration
 
 | Variable | Default | Meaning |
